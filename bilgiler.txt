@@ -1,0 +1,21 @@
+Sistem Bilgisi:
+- Laravel 12.0
+- Php 8.3
+
+Proje Çalıştırma:
+
+- Github'dan indirildikten sonra .env dosyası hazırlanmalı
+- composer install komutu çalıştırılmalı
+- npm install komutu çalıştırılmalı
+- gerekli ise php artisan key:generate çalıştırılabilir
+- php artisan migrate --seed ile veritabanı tabloları oluşturulur
+- php artisan serve ile sistem ayağa kaldırılır.
+- npm run build ile css ve js dosyaları derlenir. Eğer sitede css işlememişse npm run dev kullanabilirsiniz (çalıştıktan sonra terminali kapatmayın).
+- domain.com/cms sayfasından panele ulaşabilirsiniz.
+
+Proje içerisinde kullanılan birçok kütüphane (dropzone, datetimepicker,jquery vs.) npm ile kurulmustur
+ve css ve js dosyalarının içerisinde import edilmiştir.
+
+
+Özel Commadlar
+- php artisan logs:clear-all => Bu kod ile log dosyaları temizlenir
