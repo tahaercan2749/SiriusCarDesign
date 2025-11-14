@@ -19,11 +19,11 @@
         </div>
 
         <div class="social-icons">
-            <a href="#">
-                <img src="" alt="İnstagram">
+            <a href="#" class="icon">
+                <img src="{{asset("images/inner/instagram-icon.svg")}}" height="20" width="20"  alt="İnstagram">
             </a>
-            <a href="#">
-                <img src="" alt="Phone Call">
+            <a href="#" class="icon">
+                <img src="{{asset("images/inner/phone-icon.svg")}}" height="20" width="20"  alt="Phone Call">
             </a>
         </div>
     </div>
