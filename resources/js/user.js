@@ -5,17 +5,17 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import { Fancybox } from "@fancyapps/ui";
+import {Fancybox} from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import {Dropzone} from "dropzone";
 
 document.addEventListener('DOMContentLoaded', () => {
-    new Swiper('.swiper', {
+    new Swiper('#mainSlider', {
         modules: [Navigation, Pagination, Autoplay, EffectFade], // Lazy yok burada
         direction: 'horizontal',
         loop: true,
         preloadImages: false,
-        effect: 'fade',
+        effect: 'slide',
         fadeEffect: {
             crossFade: true, // geçişte eski slayt kaybolup yenisi görünür
         },
@@ -35,6 +35,42 @@ document.addEventListener('DOMContentLoaded', () => {
             el: '.swiper-scrollbar',
         },
     });
+
+    const swiper = new Swiper('#gallerySlide', {
+        modules: [Navigation, Autoplay],
+        slidesPerView: 3,
+        centeredSlides: true,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false, // Kullanıcı dokunduktan sonra da devam et
+        },
+        speed: 2000,
+
+        navigation: {nextEl: '.swiper-next-button', prevEl: '.swiper-prev-button'},
+        lazy: {
+            loadPrevNext: false,
+        },
+        breakpoints: {
+            // 320px ve üzeri (Mobil)
+            320: {
+                slidesPerView: 1.5, // Mobilde ortada 1, kenarlarda yarım
+                spaceBetween: 10
+            },
+            // 768px ve üzeri (Tablet)
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 15
+            },
+            // 1024px ve üzeri (Desktop)
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            }
+        }
+    });
+
 });
 
 Fancybox.bind();
@@ -64,30 +100,4 @@ faqs.forEach((faq) => {
     })
 
 });
-
-
-
-let dropzone = document.getElementById('dropzone');
-if (dropzone) {
-    dropzone = new Dropzone("#dropzone", {
-        dictDefaultMessage: "Ekelemek istediğiniz resimleri sürükleyin veya buraya tıklayın",
-        dictFallbackMessage: "Tarayıcınız sürükle bırak yüklemeyi desteklemiyor.",
-        dictInvalidFileType: "Bu dosya türüne izin verilmiyor.",
-        dictFileTooBig: "Dosya boyutu çok büyük",
-        dictResponseError: "Sunucu hatası.",
-        dictCancelUpload: "Yüklemeyi iptal et",
-        dictCancelUploadConfirmation: "Bu yüklemeyi gerçekten iptal etmek istiyor musunuz?",
-        dictRemoveFile: "Dosyayı sil",
-        dictMaxFilesExceeded: "Başka dosya yükleyemezsiniz."
-    });
-    Dropzone.autoDiscover = false;
-    dropzone.on("addedfile", file => {
-        console.log(`File added: ${file.name}`);
-    });
-
-    dropzone.on("error", function (file, errorMessage) {
-        notyf.error("Yükleme sırasında hata oluştu");
-    });
-
-}
 

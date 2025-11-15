@@ -4,9 +4,16 @@
 @endsection
 @section("content")
 
-    <div class="swiper">
+    <div class="swiper" id="mainSlider">
         <div class="swiper-wrapper">
             @foreach($slider as $slide)
+                <a href="#" class="swiper-slide">
+                    <img class="swiper-lazy desktop-show" src="{{ $slide->image() }}"
+                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                    <img class="swiper-lazy mobile-show" src="{{ $slide->mobilImage() }}"
+                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                    <div class="swiper-lazy-preloader"></div>
+                </a>
                 <a href="#" class="swiper-slide">
                     <img class="swiper-lazy desktop-show" src="{{ $slide->image() }}"
                          alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
@@ -52,36 +59,138 @@
             totam ut vitae!</p>
 
         <div class="services">
-            <div class=" service spec-stroke">
-                <div class="out-content">
-                    <div class="spec-stroke">
-                        <div class="inner-content">
-                            <figure class="spec-stroke">
-                                <img src="{{asset("images/inner/instagram-icon.svg")}}" width="20" height="20"
-                                     alt="">
-                            </figure>
-                            <h3>Boya Koruma</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam at autem
-                                blanditiis, corporis delectus odit quae quasi quod recusandae reiciendis repellat
-                                repellendus sequi sint, tempore. Consectetur earum odio quo.</p>
-                        </div>
-                    </div>
+
+            <a href="#" class="service spec-stroke">
+                <div class="spec-stroke">
+                    <figure class="spec-bg-stroke">
+                        <img src="{{asset("images/inner/boya-koruma-icon.svg")}}" width="40" height="auto" alt="">
+                    </figure>
+                    <h3>Boya Koruma</h3>
+                    <p>Aracınızın boyasını güneş, kuş pisliği
+                        ve çevresel etkilere karşı koruyarak ilk
+                        günkü parlaklığını uzun süre korur.</p>
+                </div>
+            </a>
+
+            <a href="#" class="service spec-stroke">
+                <div class="spec-stroke">
+                    <figure class="spec-bg-stroke">
+                        <img src="{{asset("images/inner/car-detailing-oto.svg")}}" width="40" height="auto" alt="">
+                    </figure>
+                    <h3>Car Detailing</h3>
+                    <p>Aracınızın iç ve dış yüzeylerinde
+                        derinlemesine temizlik, bakım ve yenileme
+                        işlemiyle üst düzey görünüm... </p>
+                </div>
+            </a>
+
+            <a href="#" class="service spec-stroke">
+                <div class="spec-stroke">
+                    <figure class="spec-bg-stroke">
+                        <img src="{{asset("images/inner/oto-yikama-icon.svg")}}" width="40" height="auto" alt="">
+                    </figure>
+                    <h3>Oto Yıkama</h3>
+                    <p>Aracınıza zarar vermeyen özel ürünlerle
+                        yapılan özenli ve detaylı temizlik hizmeti.</p>
+                </div>
+            </a>
+
+            <a href="#" class="service spec-stroke">
+                <div class="spec-stroke">
+                    <figure class="spec-bg-stroke">
+                        <img src="{{asset("images/inner/seramik-kaplama-icon.svg")}}" width="40" height="auto"
+                             alt="">
+                    </figure>
+                    <h3>Seramik Kaplama</h3>
+                    <p>Boyaya derin parlaklık ve uzun ömürlü
+                        koruma sağlayan nano teknoloji kaplama
+                        çözümü. </p>
+                </div>
+            </a>
+
+            <a href="#" class="service spec-stroke">
+                <div class="spec-stroke">
+                    <figure class="spec-bg-stroke">
+                        <img src="{{asset("images/inner/detayli-temizlik-icon.svg")}}" width="40" height="auto"
+                             alt="">
+                    </figure>
+                    <h3>Detaylı Temizlik</h3>
+                    <p>Koltuk, tavan, halı ve döşemelerde
+                        profesyonel iç temizlik ile hijyen ve
+                        ferahlık sağlar. </p>
+                </div>
+            </a>
+
+            <a href="#" class="service spec-stroke">
+                <div class="spec-stroke">
+                    <figure class="spec-bg-stroke">
+                        <img src="{{asset("images/inner/jant-boyama-icon.svg")}}" width="40" height="auto" alt="">
+                    </figure>
+                    <h3>Jant Boyama</h3>
+                    <p>Aracınıza estetik bir dokunuş kazandırmak
+                        ve jantlarınızı ilk günkü görünümüne
+                        kavuşturmak için profesyonel jant.</p>
+                </div>
+            </a>
+
+
+        </div>
+
+    </div>
+
+    <div class="gallery content-space">
+        <div class="max-width">
+            <h2 class="home-title">Sirius Car Design Galeri</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi delectus dolores inventore labore
+                laudantium magni, maiores neque nisi officiis porro, quibusdam, sequi? Ex, fugit ipsa nisi
+                quibusdam quisquam voluptas!</p>
+
+            <div class="swiper" id="gallerySlide">
+                <div class="swiper-wrapper">
+                    @foreach($slider as $slide)
+                        <a href="#" class="swiper-slide spec-stroke">
+                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
+                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                            <div class="swiper-lazy-preloader"></div>
+                        </a>
+                    @endforeach
+                </div>
+                <div class="swiper-next-button spec-bg-stroke">
+                    <img src="{{asset("images/inner/slide-next-btn.svg")}}" alt="">
+                </div>
+                <div class="swiper-prev-button spec-bg-stroke">
+                    <img src="{{asset("images/inner/slide-prev-btn.svg")}}" alt="">
                 </div>
             </div>
         </div>
     </div>
 
-        <div class="spec-stroke">
+    <div class="our-values content-space">
+        <div class="max-width">
+            <h2 class="home-title">Sirius Car Design Değerleri</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur blanditiis consectetur
+                dignissimos dolor dolores enim fuga fugiat, in nihil pariatur placeat quaerat quod recusandae rem
+                veniam vitae? Excepturi, optio.</p>
+            <div class="values">
+                <div class="value spec-bg-stroke">
+                    <div class="title">
+                        <h3>Profesyonel Ekip</h3>
+                        <figure>
+                            <img src="{{asset("images/inner/arrow-up-icon.svg")}}" width="25" alt="">
+                        </figure>
+                    </div>
 
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita non repellat
+                            tempore. Deserunt enim facilis modi molestias nesciunt nulla officiis, placeat quae, quasi
+                            quidem quod sint suscipit tempore veniam?</p>
+                    </div>
 
+                </div>
+            </div>
         </div>
-        <div class="spec-bg-stroke">
 
-
-        </div>
-
-
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
 
 @endsection
 @section("extraJs")
@@ -123,7 +232,7 @@
         notyf.error("{{ session('message') }}");
         @endif
 
-
+        // H2 elemanlarının son kelimesinin rengini değiştirme
         document.addEventListener("DOMContentLoaded", function () {
             // 1. Sayfadaki tüm h2 etiketlerini seç
             const allH2s = document.querySelectorAll('h2');
@@ -149,5 +258,7 @@
                 // else (yani kelime sayısı 1 veya 0 ise) hiçbir şey yapma, h2'yi orijinal haliyle bırak.
             });
         });
+        // ### H2 elemanlarının son kelimesinin rengini değiştirme
+
     </script>
 @endsection

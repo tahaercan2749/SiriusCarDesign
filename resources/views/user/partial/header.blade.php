@@ -10,7 +10,7 @@
             <img src="{{$setting->logo()}}" alt="{{$setting->site_name}} Logo">
         </a>
 
-        <div class="menus bg-gradient">
+        <div class="menus spec-bg-stroke">
             <a href="#" class="bg-gradient">Anasayfa</a>
             <a href="#" class="bg-gradient">Kurumsal</a>
             <a href="#" class="bg-gradient">Hizmetlerimiz</a>
@@ -19,10 +19,10 @@
         </div>
 
         <div class="social-icons">
-            <a href="#" class="icon">
+            <a href="#" class="icon spec-bg-stroke">
                 <img src="{{asset("images/inner/instagram-icon.svg")}}" height="20" width="20"  alt="İnstagram">
             </a>
-            <a href="#" class="icon">
+            <a href="#" class="icon spec-bg-stroke">
                 <img src="{{asset("images/inner/phone-icon.svg")}}" height="20" width="20"  alt="Phone Call">
             </a>
         </div>
