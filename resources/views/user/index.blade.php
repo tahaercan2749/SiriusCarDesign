@@ -30,7 +30,6 @@
         <div class="swiper-scrollbar"></div>
     </div>
 
-
     <div class="about-us content-space">
         <div class="max-width">
             <div class="content">
@@ -153,6 +152,36 @@
                                  alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
                             <div class="swiper-lazy-preloader"></div>
                         </a>
+                        <a href="#" class="swiper-slide spec-stroke">
+                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
+                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                            <div class="swiper-lazy-preloader"></div>
+                        </a>
+                        <a href="#" class="swiper-slide spec-stroke">
+                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
+                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                            <div class="swiper-lazy-preloader"></div>
+                        </a>
+                        <a href="#" class="swiper-slide spec-stroke">
+                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
+                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                            <div class="swiper-lazy-preloader"></div>
+                        </a>
+                        <a href="#" class="swiper-slide spec-stroke">
+                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
+                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                            <div class="swiper-lazy-preloader"></div>
+                        </a>
+                        <a href="#" class="swiper-slide spec-stroke">
+                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
+                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                            <div class="swiper-lazy-preloader"></div>
+                        </a>
+                        <a href="#" class="swiper-slide spec-stroke">
+                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
+                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                            <div class="swiper-lazy-preloader"></div>
+                        </a>
                     @endforeach
                 </div>
                 <div class="swiper-next-button spec-bg-stroke">
@@ -181,8 +210,27 @@
                     </div>
 
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita non repellat
-                            tempore. Deserunt enim facilis modi molestias nesciunt nulla officiis, placeat quae, quasi
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita non
+                            repellat
+                            tempore. Deserunt enim facilis modi molestias nesciunt nulla officiis, placeat quae,
+                            quasi
+                            quidem quod sint suscipit tempore veniam?</p>
+                    </div>
+
+                </div>
+                <div class="value spec-bg-stroke active">
+                    <div class="title">
+                        <h3>Profesyonel Ekip</h3>
+                        <figure>
+                            <img src="{{asset("images/inner/arrow-up-icon.svg")}}" width="25" alt="">
+                        </figure>
+                    </div>
+
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita non
+                            repellat
+                            tempore. Deserunt enim facilis modi molestias nesciunt nulla officiis, placeat quae,
+                            quasi
                             quidem quod sint suscipit tempore veniam?</p>
                     </div>
 
@@ -190,6 +238,26 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="blogs-news content-space">
+        <div class="max-width">
+            <h2 class="home-title">Haberler ve Blog</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, expedita explicabo id illo
+                inventore ipsa iure, molestiae possimus quas quos ratione reiciendis rerum sed soluta totam vel
+                veritatis vero voluptates.</p>
+
+            <div class="blogs">
+                <div class="blog spec-stroke">
+                    <h3>Haber Başlığı</h3>
+                    <figure class="spec-stroke">
+                        <img src="{{asset("images/inner/blog.jpg")}}" alt="">
+                    </figure>
+                </div>
+            </div>
+
+
+        </div>
     </div>
 
 @endsection
@@ -235,7 +303,7 @@
         // H2 elemanlarının son kelimesinin rengini değiştirme
         document.addEventListener("DOMContentLoaded", function () {
             // 1. Sayfadaki tüm h2 etiketlerini seç
-            const allH2s = document.querySelectorAll('h2');
+            const allH2s = document.querySelectorAll('h2:not(.nochange)');
 
             // 2. Her bir h2 için döngü başlat
             allH2s.forEach(h2 => {
@@ -260,5 +328,18 @@
         });
         // ### H2 elemanlarının son kelimesinin rengini değiştirme
 
+    </script>
+
+    <script>
+        const valuesOfSirius = document.querySelectorAll(".values .value");
+        valuesOfSirius.forEach((v) => {
+            v.addEventListener("click", () => {
+                activeValues = document.querySelectorAll(".values .value");
+                activeValues.forEach((av) => {
+                    av.classList.remove("active");
+                })
+                v.classList.toggle("active");
+            })
+        })
     </script>
 @endsection

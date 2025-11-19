@@ -7,7 +7,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import {Fancybox} from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import {Dropzone} from "dropzone";
+
+import 'remixicon/fonts/remixicon.css';
 
 document.addEventListener('DOMContentLoaded', () => {
     new Swiper('#mainSlider', {
