@@ -4,49 +4,49 @@
 @endsection
 @section("content")
 
-    <div class="swiper" id="mainSlider">
-        <div class="swiper-wrapper">
-            @foreach($slider as $slide)
-                <a href="#" class="swiper-slide">
-                    <img class="swiper-lazy desktop-show" src="{{ $slide->image() }}"
-                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
-                    <img class="swiper-lazy mobile-show" src="{{ $slide->mobilImage() }}"
-                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
-                    <div class="swiper-lazy-preloader"></div>
-                </a>
-                <a href="#" class="swiper-slide">
-                    <img class="swiper-lazy desktop-show" src="{{ $slide->image() }}"
-                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
-                    <img class="swiper-lazy mobile-show" src="{{ $slide->mobilImage() }}"
-                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
-                    <div class="swiper-lazy-preloader"></div>
-                </a>
-            @endforeach
-        </div>
+{{--    <div class="swiper" id="mainSlider">--}}
+{{--        <div class="swiper-wrapper">--}}
+{{--            @foreach($slider as $slide)--}}
+{{--                <a href="#" class="swiper-slide">--}}
+{{--                    <img class="swiper-lazy desktop-show" src="{{ $slide->image() }}"--}}
+{{--                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">--}}
+{{--                    <img class="swiper-lazy mobile-show" src="{{ $slide->mobilImage() }}"--}}
+{{--                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">--}}
+{{--                    <div class="swiper-lazy-preloader"></div>--}}
+{{--                </a>--}}
+{{--                <a href="#" class="swiper-slide">--}}
+{{--                    <img class="swiper-lazy desktop-show" src="{{ $slide->image() }}"--}}
+{{--                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">--}}
+{{--                    <img class="swiper-lazy mobile-show" src="{{ $slide->mobilImage() }}"--}}
+{{--                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">--}}
+{{--                    <div class="swiper-lazy-preloader"></div>--}}
+{{--                </a>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
 
-        {{--        <div class="swiper-pagination"></div>--}}
-        {{--        <div class="swiper-button-prev"></div>--}}
-        {{--        <div class="swiper-button-next"></div>--}}
-        <div class="swiper-scrollbar"></div>
-    </div>
+{{--        --}}{{--        <div class="swiper-pagination"></div>--}}
+{{--        --}}{{--        <div class="swiper-button-prev"></div>--}}
+{{--        --}}{{--        <div class="swiper-button-next"></div>--}}
+{{--        <div class="swiper-scrollbar"></div>--}}
+{{--    </div>--}}
 
     <div class="about-us content-space">
         <div class="max-width">
             <div class="content">
                 <h2 class="home-title">Hakkımızda</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam assumenda atque
-                    consequuntur
-                    enim facereelit. Animi aperiam assumenda atque
-                    consequuntur
-                    enim facereelit. Animi aperiam assumenda atque
-                    consequuntur
-                    enim facereelit. Animi aperiam assumenda atque
-                    consequuntur
-                    enim facere minus modi porro provident, quidem quis quo ratione, rem repudiandae sunt voluptas
-                    voluptatibus! Illo, nemo!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consequuntur doloremque error
-                    excepturi exercitationem explicabo facilis ipsum minus nobis non numquam odio omnis quasi quod
-                    reprehenderit sit sunt voluptate, voluptatibus.</p>
+                <p>Sirius Oto Design olarak Adana’da, aracınızı sadece sizi taşıyan bir araç değil, korunması ve
+                    parlatılması gereken değerli bir yatırım olarak görüyoruz. Otomotiv estetiğini teknik
+                    uzmanlıkla birleştirdiğimiz merkezimizde; "önce güven, sonra işlem" prensibiyle hareket
+                    ediyoruz. Amacımız, aracınızın markası ne olursa olsun, kapımızdan içeri girdiği andan itibaren
+                    ona hak ettiği hassasiyeti göstermek ve fabrika çıkışındaki o heyecan verici parlaklığı size
+                    yeniden yaşatmaktır.</p>
+                <p>Hizmet anlayışımız, standart bir oto yıkamanın çok ötesinde; aracın ruhunu ve kondisyonunu
+                    iyileştiren profesyonel çözümler üzerine kuruludur. Detaylı temizlik ve car detailing ile
+                    aracınıza hijyen ve ferahlık katarken; seramik kaplama, PPF kaplama ve cam filmi
+                    uygulamalarımızla Adana’nın zorlu yol ve iklim şartlarına karşı üstün bir kalkan oluşturuyoruz.
+                    En yeni teknolojileri usta işçilikle harmanlayarak, hem günlük temizlik ihtiyaçlarınıza hem de
+                    yüksek standartlı koruma beklentilerinize aynı çatı altında, samimiyet ve titizlikle yanıt
+                    veriyoruz.</p>
             </div>
         </div>
     </div>
