@@ -238,6 +238,7 @@ header {
     justify-content: flex-start;
     align-items: flex-end;
     padding-bottom: 10px;
+    position: relative;
 
     @media (max-width: 768px) {
         max-height: 80px;
@@ -264,6 +265,10 @@ header {
         gap: 50px;
 
 
+        @media (max-width: 1024px) {
+            gap: 30px;
+        }
+
         .logo {
             width: 200px;
             height: auto;
@@ -287,7 +292,8 @@ header {
             }
 
             &.spec-bg-stroke {
-                overflow: unset!important;
+                overflow: unset !important;
+
                 &:before {
                     border-radius: 28px;
                 }
@@ -299,6 +305,7 @@ header {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
                 a {
                     font-family: $fontInter;
                     font-weight: 500;
@@ -308,32 +315,36 @@ header {
                     color: #ffffff;
 
                 }
-                &:hover{
-                    .sub-menu{
+
+                &:hover {
+                    .sub-menu {
                         height: fit-content;
-                        box-shadow: 0 0 10px rgba(255,255,255,0.1);
-                        .sub-link{
+                        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+
+                        .sub-link {
                             display: flex;
                             justify-content: start;
                             align-items: start;
-                            gap:0;
+                            gap: 0;
                             flex-direction: column;
                             width: 100%;
 
-                            a{
+                            a {
                                 width: 100%;
                                 font-size: 18px;
                                 font-family: $fontGeist;
                                 line-height: 22px;
                                 padding: 10px;
                                 border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-                                &:hover{
+
+                                &:hover {
                                     background: $colorBlack2;
                                 }
                             }
                         }
                     }
                 }
+
                 .sub-menu {
                     position: absolute;
                     top: 60px;
@@ -345,17 +356,19 @@ header {
                     width: max-content;
                     padding: 0;
                     border-radius: 12px;
-                    box-shadow: 0 10px 20px rgba(0,0,0,0); // Derinlik katar
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0); // Derinlik katar
                     z-index: 99;
                     overflow: hidden;
                     height: 0;
                     max-height: 500px;
                     transition: all .3s ease-in-out;
-                    &:before{
+
+                    &:before {
                         border-radius: 12px;
                     }
-                    .sub-link{
-                        a{
+
+                    .sub-link {
+                        a {
                             font-size: 0;
                             line-height: 0;
                             padding: 0;
@@ -413,19 +426,29 @@ header {
         .sidemenu {
             position: absolute;
             top: 80px;
-            right: -100%;
+            right: 0;
             height: 100vh;
-            width: 100%;
+            width: 0;
             background: rgb(255, 255, 255, 0);
             backdrop-filter: blur(10px);
             z-index: 3;
+            opacity: 0;
 
             &.opened {
-                right: 0;
+                width: 100%;
+                opacity: 1;
+
+                .menu-list {
+                    width: 250px;
+                    right: 0;
+                    top: 0;
+                    padding: 0;
+                    border-left: 0 solid $colorBlack2;
+                }
             }
 
             .menu-list {
-                width: 250px;
+                width: 0;
                 background: #000000;
                 height: 100%;
                 position: absolute;
@@ -548,11 +571,16 @@ header {
     font-family: $fontGeist;
     font-size: 50px;
     font-weight: 600;
-    line-height: 50px;
+    line-height: 60px;
     color: #ffffff;
     margin-bottom: 30px;
     width: 100%;
     text-align: center;
+    @media (max-width: 600px) {
+        font-size: 36px;
+        line-height: 46px;
+        margin-bottom: 20px;
+    }
 }
 
 p {
@@ -562,6 +590,10 @@ p {
     line-height: 28px;
     margin-bottom: 15px;
     font-weight: 300;
+    @media (max-width: 600px) {
+        font-size: 16px;
+        line-height: 26px;
+    }
 }
 
 .about-us {
@@ -577,21 +609,50 @@ p {
     padding-top: 160px;
     padding-bottom: 0;
 
+    @media (max-width: 1024px) {
+        padding-top: 100px;
+    }
+    @media (max-width: 768px) {
+        background-position-y: 40px;
+        background-position-x: 0;
+        background-size: 100%;
+        height: auto;
+    }
+
     .max-width {
         display: flex;
         justify-content: end;
         align-items: start;
         gap: 10px;
 
+        @media (max-width: 768px) {
+            justify-content: start;
+        }
+
         .content {
             max-width: calc((100% - 100px) / 2);
 
+            @media (max-width: 768px) {
+                max-width: 100%;
+                margin-top: 360px;
+            }
+            @media (max-width: 600px) {
+                margin-top: 190px;
+            }
+            @media (max-width: 400px) {
+                margin-top: 165px;
+            }
+            @media (max-width: 350px) {
+                margin-top: 150px;
+            }
+
             .home-title {
                 text-align: left;
+                @media (max-width: 768px) {
+                    text-align: center;
+                }
             }
         }
-
-
     }
 }
 
@@ -624,6 +685,13 @@ p {
             border-radius: 20px;
             overflow: hidden;
             padding: 25px;
+            @media (max-width: 1024px) {
+                max-width: calc((100% - 40px) / 2);
+            }
+            @media (max-width: 600px) {
+                max-width: 100%;
+                padding: 15px;
+            }
 
             &:hover {
                 & > .spec-stroke {
@@ -661,6 +729,10 @@ p {
                 width: 85px;
                 height: 85px;
                 border-radius: 50%;
+                @media (max-width: 600px) {
+                    width: 60px;
+                    height: 60px;
+                }
 
                 &.spec-bg-stroke {
                     border-radius: 50%;
@@ -678,6 +750,10 @@ p {
                     width: 40px;
                     height: 40px;
                     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.75));
+                    @media (max-width: 600px) {
+                        width: 30px;
+                        height: 30px;
+                    }
                 }
             }
 
@@ -687,6 +763,10 @@ p {
                 font-weight: 600;
                 color: #fff;
                 line-height: 30px;
+                @media (max-width: 600px) {
+                    font-size: 24px;
+                    line-height: 24px;
+                }
             }
 
             p {
@@ -694,6 +774,11 @@ p {
                 color: #8c8c8c;
                 text-align: left;
                 min-height: 78px;
+                @media (max-width: 600px) {
+                    font-size: 16px;
+                    line-height: 24px;
+                    min-height: 72px;
+                }
             }
         }
     }
@@ -827,7 +912,7 @@ p {
                 }
 
                 .content {
-                    padding: 35px 45px;
+                    padding: 20px 30px;
                     height: auto;
                 }
             }
@@ -846,14 +931,14 @@ p {
                 justify-content: space-between;
                 align-items: center;
                 border-bottom: 0px solid #000;
-                padding: 35px 45px;
+                padding: 20px 30px;
 
                 h3 {
                     color: #fff;
                     font-family: $fontGeist;
                     font-weight: 500;
-                    font-size: 30px;
-                    line-height: 40px;
+                    font-size: 24px;
+                    line-height: 34px;
                 }
 
                 figure {
@@ -893,6 +978,13 @@ p {
         border-radius: 25px;
         overflow: hidden;
         padding: 20px;
+
+        @media (max-width: 1024px) {
+            max-width: calc((100% - 20px) / 2);
+        }
+        @media (max-width: 600px) {
+            max-width: 100%;
+        }
 
         &.spec-stroke {
             &:before {
@@ -942,6 +1034,18 @@ footer {
         background: linear-gradient(180deg, rgba(0, 51, 0, 1) 0%, rgba(0, 0, 0, 1) 33%, rgba(0, 23, 0, 1) 100%);
         padding-top: 120px;
         padding-bottom: 120px;
+        @media (max-width: 1280px) {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        @media (max-width: 768px) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        @media (max-width: 600px) {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
 
         .max-width {
             display: flex;
@@ -950,6 +1054,13 @@ footer {
             gap: 100px;
             flex-wrap: wrap;
             width: 100%;
+            @media (max-width: 1280px) {
+                gap: 70px;
+            }
+            @media (max-width: 768px) {
+                gap: 50px;
+            }
+
 
             &.first {
 
@@ -959,6 +1070,9 @@ footer {
                 .item {
                     max-width: calc((100% - 100px) / 2);
                     width: 100%;
+                    @media (max-width: 768px) {
+                        max-width: 100%;
+                    }
                 }
 
                 .left {
@@ -967,10 +1081,21 @@ footer {
                     align-items: start;
                     gap: 60px;
                     flex-direction: column;
+                    @media (max-width: 768px) {
+                        gap: 30px;
+                        justify-content: center;
+                        align-items: center;
+                        p {
+                            text-align: center;
+                        }
+                    }
 
                     figure {
                         width: 320px;
                         height: auto;
+                        @media (max-width: 768px) {
+                            width: 300px;
+                        }
 
                         img {
                             float: left;
@@ -986,6 +1111,10 @@ footer {
                     align-items: flex-end;
                     flex-direction: column;
                     gap: 60px;
+                    @media (max-width: 768px) {
+                        align-items: center;
+                        gap: 35px
+                    }
 
                     .contact-title {
                         padding: 15px 25px;
@@ -994,6 +1123,10 @@ footer {
                         justify-content: center;
                         align-items: center;
                         color: #fff;
+                        @media (max-width: 768px) {
+                            text-wrap: nowrap;
+
+                        }
 
                         &.spec-bg-stroke {
                             &:before {
@@ -1015,6 +1148,10 @@ footer {
                         justify-content: end;
                         align-items: end;
                         flex-direction: column;
+                        @media (max-width: 768px) {
+                            justify-content: center;
+                            align-items: center;
+                        }
 
                         h3 {
                             text-align: right;
@@ -1023,6 +1160,10 @@ footer {
                             font-size: 16px;
                             line-height: 26px;
                             font-weight: 300 !important;
+                            margin-bottom: 10px;
+                            @media (max-width: 768px) {
+                                text-align: center;
+                            }
                         }
                     }
 
@@ -1035,6 +1176,13 @@ footer {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                gap: 50px;
+                @media (max-width: 600px) {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-content: center;
+                    gap: 30px
+                }
 
                 .social-title {
                     padding: 15px 25px;
@@ -1073,9 +1221,17 @@ footer {
                         align-items: center;
                         border-radius: 50%;
                         overflow: hidden;
+                        @media (max-width: 600px) {
+                            height: 40px;
+                            width: 40px;
+                        }
 
                         img {
                             filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.75));
+                            @media (max-width: 600px) {
+                                width: 20px;
+                                height: auto;
+                            }
                         }
 
                         &.spec-bg-stroke {
@@ -1092,7 +1248,7 @@ footer {
     }
 
     .author {
-        background: #fff;
+        background: #000000;
 
         padding-top: 20px;
         padding-bottom: 20px;
@@ -1103,13 +1259,20 @@ footer {
             justify-content: space-between;
             align-items: center;
             gap: 50px;
+            @media (max-width: 600px) {
+                flex-direction: column;
+                gap:30px;
+            }
 
             .reserved {
                 font-size: 16px;
                 line-height: 22px;
                 font-family: $fontInter;
                 font-weight: 300;
-                color: #000;
+                color: #ffffff;
+                @media (max-width: 600px) {
+                    text-align: center;
+                }
 
                 b {
                     font-weight: 500;
@@ -1132,6 +1295,7 @@ footer {
                     float: right;
                     height: 24px;
                     width: auto;
+
                 }
             }
         }

@@ -248,12 +248,18 @@
                 veritatis vero voluptates.</p>
 
             <div class="blogs">
+
+
+
                 <div class="blog spec-stroke">
                     <h3>Haber Başlığı</h3>
                     <figure class="spec-stroke">
                         <img src="{{asset("images/inner/blog.jpg")}}" alt="">
                     </figure>
                 </div>
+
+
+
             </div>
 
 
