@@ -9,7 +9,7 @@ class SiteSettings extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['site_name', 'logo', 'favicon', 'footer_logo',"store_link",'seo_title','seo_description', 'head_code', 'header_code', 'footer_code'];
+    protected $fillable = ['site_name', 'logo', 'favicon', 'footer_logo',"store_link",'seo_brand','seo_title','seo_description', 'head_code', 'header_code', 'footer_code'];
 
 
     /**

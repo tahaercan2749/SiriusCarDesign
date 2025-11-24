@@ -1,22 +1,12 @@
-
-
-
-<div class="breadcrumb"
-     @if($page->breadcrumb_image)
-        style="background-image: url({{$page->breadcrumbImage()}})"
-     @else
-         style="background-image: url({{asset("images/site-ici/breadcrumb-default-bg.jpg")}})"
-    @endif>
-
-    <h1 class="title">{{$page->title}}</h1>
-    <div class="links">
-        <a href="{{env("APP_URL")}}">Anasayfa <i class="las la-angle-right"></i></a>
+<div class="breadcrumb">
+    <div class="max-width">
+        <a href="{{env("APP_URL")}}">Anasayfa <i class="ri-arrow-drop-right-fill"></i></a>
         @foreach($page->parentCategory->breadcrumbs() as $breadcrumb)
             @if($breadcrumb->name)
                 @if($breadcrumb->page?->id != $page->id)
 
                     <a @if($breadcrumb->page != NULL) href="{{$breadcrumb->page->slug}}" @endif>
-                         {{$breadcrumb->name}} <i class="las la-angle-right"></i>
+                        {{$breadcrumb->name}} <i class="ri-arrow-drop-right-fill"></i>
                     </a>
                 @endif
 
@@ -26,5 +16,6 @@
                 @endif
             @endif
         @endforeach
+        <a class="title">{{$page->title}}</a>
     </div>
 </div>

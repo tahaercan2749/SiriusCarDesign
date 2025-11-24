@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('favicon')->nullable();
             $table->string('footer_logo')->nullable();
             $table->string('store_link',300)->nullable();
+            $table->string('seo_brand',125)->nullable();
             $table->string('seo_title',125)->nullable();
             $table->string('seo_description',350)->nullable();
             $table->longText('head_code')->nullable();

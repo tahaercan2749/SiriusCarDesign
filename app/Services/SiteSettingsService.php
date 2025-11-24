@@ -85,6 +85,7 @@ class SiteSettingsService
             $setting->update([
                 "site_name"=>$request->site_name,
                 "store_link"=>$request->store_link,
+                "seo_brand"=>$request->seo_brand,
                 "seo_title"=>$request->seo_title,
                 "seo_description"=>$request->seo_description,
                 "head_code"=>$request->head_code,

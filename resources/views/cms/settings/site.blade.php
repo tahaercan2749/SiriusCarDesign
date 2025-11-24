@@ -63,6 +63,9 @@
                     <label for="store_link">Satış Mağaza Linki:</label>
                     <input type="text" name="store_link" id="store_link" placeholder="Satış Mağazası Linki" value="{{ $siteSettings->store_link}}">
 
+                    <label for="seo_brand">SEO Marka Eki:</label>
+                    <input type="text" name="seo_brand" id="seo_brand" placeholder="SEO Marka Eki" value="{{ $siteSettings->seo_brand }}">
+
                     <label for="seo_title">SEO Title:</label>
                     <input type="text" name="seo_title" id="seo_title" placeholder="SEO Title" value="{{ $siteSettings->seo_title }}">
 

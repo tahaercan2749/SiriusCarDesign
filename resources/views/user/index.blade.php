@@ -4,31 +4,31 @@
 @endsection
 @section("content")
 
-{{--    <div class="swiper" id="mainSlider">--}}
-{{--        <div class="swiper-wrapper">--}}
-{{--            @foreach($slider as $slide)--}}
-{{--                <a href="#" class="swiper-slide">--}}
-{{--                    <img class="swiper-lazy desktop-show" src="{{ $slide->image() }}"--}}
-{{--                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">--}}
-{{--                    <img class="swiper-lazy mobile-show" src="{{ $slide->mobilImage() }}"--}}
-{{--                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">--}}
-{{--                    <div class="swiper-lazy-preloader"></div>--}}
-{{--                </a>--}}
-{{--                <a href="#" class="swiper-slide">--}}
-{{--                    <img class="swiper-lazy desktop-show" src="{{ $slide->image() }}"--}}
-{{--                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">--}}
-{{--                    <img class="swiper-lazy mobile-show" src="{{ $slide->mobilImage() }}"--}}
-{{--                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">--}}
-{{--                    <div class="swiper-lazy-preloader"></div>--}}
-{{--                </a>--}}
-{{--            @endforeach--}}
-{{--        </div>--}}
+    <div class="swiper" id="mainSlider">
+        <div class="swiper-wrapper">
+            @foreach($slider as $slide)
+                <a href="#" class="swiper-slide">
+                    <img class="swiper-lazy desktop-show" src="{{ $slide->image() }}"
+                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                    <img class="swiper-lazy mobile-show" src="{{ $slide->mobilImage() }}"
+                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                    <div class="swiper-lazy-preloader"></div>
+                </a>
+                <a href="#" class="swiper-slide">
+                    <img class="swiper-lazy desktop-show" src="{{ $slide->image() }}"
+                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                    <img class="swiper-lazy mobile-show" src="{{ $slide->mobilImage() }}"
+                         alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                    <div class="swiper-lazy-preloader"></div>
+                </a>
+            @endforeach
+        </div>
 
-{{--        --}}{{--        <div class="swiper-pagination"></div>--}}
-{{--        --}}{{--        <div class="swiper-button-prev"></div>--}}
-{{--        --}}{{--        <div class="swiper-button-next"></div>--}}
-{{--        <div class="swiper-scrollbar"></div>--}}
-{{--    </div>--}}
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+    </div>
 
     <div class="about-us content-space">
         <div class="max-width">
@@ -53,9 +53,11 @@
 
     <div class="our-services content-space max-width">
         <h2 class="home-title">Sirius Car Design Hizmetleri</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid amet atque aut debitis
-            deleniti fuga id ipsa laudantium magni, molestias neque praesentium quibusdam quidem, similique sit,
-            totam ut vitae!</p>
+        <p>Adana’da aracınızın kondisyonunu en üst seviyeye taşıyacak teknik uzmanlıkla tanışın. Sirius Oto Design olarak;
+            <b>nanoteknolojik seramik kaplama</b> ve <b>PPF boya koruma filmi</b> ile aracınızın değerini korurken, <b>detaylı temizlik</b>,
+            <b>oto yıkama</b> ve <b>cam filmi</b> uygulamalarımızla konforunuzu artırıyoruz. İster lüks segment koruma, ister
+            günlük bakım olsun; oto kuaför ve tasarım alanındaki tüm ihtiyaçlarınız için profesyonel hizmetlerimizi aşağıda
+            inceleyebilirsiniz.</p>
 
         <div class="services">
 
@@ -250,14 +252,12 @@
             <div class="blogs">
 
 
-
                 <div class="blog spec-stroke">
                     <h3>Haber Başlığı</h3>
                     <figure class="spec-stroke">
                         <img src="{{asset("images/inner/blog.jpg")}}" alt="">
                     </figure>
                 </div>
-
 
 
             </div>
