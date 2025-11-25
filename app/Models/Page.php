@@ -142,35 +142,6 @@ class Page extends Model
         return $nestedPages;
 
     }
-
-    /**
-     * Sayfaya Ait Teknik Bilgiyi Çeker.
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function technicalInformation()
-    {
-        return $this->hasOne(TechnicalInformation::class, 'page_id');
-    }
-
-    /**
-     * Sayfaya Ait Besin Değerlerini Çeker.
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function nutritionalValues()
-    {
-        return $this->hasOne(NutritionalValues::class, 'page_id');
-    }
-
-    /**
-     * Sayfaya Ait Paketleme Bilgilerini Çeker.
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function packaging()
-    {
-        return $this->hasMany(Packaging::class, 'page_id');
-    }
-
-
 }
 
 

@@ -6,7 +6,7 @@
 
 <header>
     <div class="max-width">
-        <a href="#" class="logo">
+        <a href="/" class="logo">
             <img src="{{$setting->logo()}}" alt="{{$setting->site_name}} Logo">
         </a>
 
@@ -21,7 +21,7 @@
                     $isCurrent = false;
                     $hasChildren = ($menu->children && $menu->children->count() > 0) || ($menu->pages && $menu->pages->count() > 0);
 
-                    // Aktif sayfa kontrolü (Eski koddan aynen alındı)
+                    // Aktif sayfa kontrolü
                     if ($menu->page && url($menu->page->slug) == url()->current()) {
                         $isCurrent = true;
                     }

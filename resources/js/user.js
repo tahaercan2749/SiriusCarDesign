@@ -7,7 +7,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import {Fancybox} from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-
+import GLightbox from 'glightbox';
+import 'glightbox/dist/css/glightbox.css';
 import 'remixicon/fonts/remixicon.css';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -102,3 +103,7 @@ faqs.forEach((faq) => {
 
 });
 
+const lightbox = GLightbox({
+    touchNavigation: true,
+    loop: true
+});
