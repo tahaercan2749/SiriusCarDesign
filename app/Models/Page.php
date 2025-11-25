@@ -129,18 +129,44 @@ class Page extends Model
 
     public function getOtherPagesAttribute()
     {
-        //İhtiyaç duyulan sayfa sayısı
-        $nested = 3;
-        $nestedPages = collect();
-        $beforePages = Page::where('category_id', $this->parent_category)->where('is_main', 0)->where('id', '<', $this->id)->orderBy('id', 'desc')->limit($nested)->get();
-        $nestedPages->merge($beforePages);
-        if ($beforePages->count() < $nested) {
-            $nested = $nested - $beforePages->count();
-            $afterPages = Page::where('category_id', $this->parent_category)->where('is_main', 0)->where('id', '>', $this->id)->orderBy('id', 'asc')->limit($nested)->get();
-            $nestedPages->merge($afterPages);
+        // 1. Kategori yoksa boş koleksiyon dön (Hata almamak için)
+        if (!$this->category_id) {
+            return collect();
         }
-        return $nestedPages;
 
+        $limit = 3; // İhtiyaç duyulan sayfa sayısı
+
+        // Sonuçları toplayacağımız ana koleksiyon
+        $results = collect();
+
+        // 2. ÖNCEKİ YAZILAR (ID'si küçük olanlar)
+        // DİKKAT: 'parent_category' yerine 'category_id' kullanıyoruz.
+        $beforePages = Page::where('category_id', $this->category_id)
+            ->where('is_main', 0)
+            ->where('published', 1) // Sadece yayınlanmışları göster
+            ->where('id', '<', $this->id)
+            ->orderBy('id', 'desc')
+            ->limit($limit)
+            ->get();
+
+        $results = $results->merge($beforePages);
+
+        // 3. EKSİK KALDIYSA SONRAKİ YAZILAR (ID'si büyük olanlar)
+        if ($results->count() < $limit) {
+            $remaining = $limit - $results->count();
+
+            $afterPages = Page::where('category_id', $this->category_id)
+                ->where('is_main', 0)
+                ->where('published', 1) // Sadece yayınlanmışları göster
+                ->where('id', '>', $this->id)
+                ->orderBy('id', 'asc')
+                ->limit($remaining)
+                ->get();
+
+            $results = $results->merge($afterPages);
+        }
+
+        return $results;
     }
 }
 

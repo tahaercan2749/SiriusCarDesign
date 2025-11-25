@@ -9,13 +9,15 @@
                         {{$breadcrumb->name}} <i class="ri-arrow-drop-right-fill"></i>
                     </a>
                 @endif
-
             @else
                 @if($breadcrumb->id != $page->id)
-                    <a href="{{$breadcrumb->slug}}">{{$breadcrumb->title}}</a>
+                    <a href="{{$breadcrumb->slug}}">{{$breadcrumb->title}} <i class="ri-arrow-drop-right-fill"></i></a>
                 @endif
             @endif
         @endforeach
         <a class="title">{{$page->title}}</a>
     </div>
 </div>
+
+
+

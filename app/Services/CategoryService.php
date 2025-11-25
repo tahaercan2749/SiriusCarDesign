@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Category;
+use App\Models\Faq;
 use App\Models\SpecialCategories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -70,7 +71,7 @@ class CategoryService
             $category = Category::findOrFail($id);
             $oldImageName = $category->image;
             $newImageName = $oldImageName;
-
+            $file=NULL;
             if ($request->hasFile('category_image')) {
                 $file = $request->file('category_image');
                 $slug = Str::slug($request->name, "-") . '-' . Str::lower(Str::random(4));
@@ -100,7 +101,9 @@ class CategoryService
             ]);
 
             if ($request->hasFile('category_image')) {
-                $this->commonService->deleteFile(config('constants.category_path'), $oldImageName);
+                if($oldImageName != NULL){
+                    $this->commonService->deleteFile(config('constants.category_path'), $oldImageName);
+                }
                 $this->commonService->uploadFile(config('constants.category_path'), $file, $newImageName);
                 LogService::add("Category Service Update", "success", $category->name . " Kategori Resmi Güncellendi");
             }
@@ -270,13 +273,9 @@ class CategoryService
                     "name" => Str::slug($category->name, '-'),
                     "category_id" => $category->id
                 ]);
-                $category->update([
-                    "show_panel"=>1
-                ]);
+
             } else {
-                $category->update([
-                    "show_panel"=>0
-                ]);
+
                 $issetSpecialCategory->delete();
                 $message = "Özel Kategori Kaldırıldı";
             }

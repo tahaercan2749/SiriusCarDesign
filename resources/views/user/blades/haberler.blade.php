@@ -1,37 +1,25 @@
 @extends("user.partial.layout")
 @section("content")
-    <div class="page-content max-width content-space">
-        {!! $page->content !!}
+    <div class="inner-page">
+        <div class="max-width  content-space">
+            <h1>{{$page->title}}</h1>
+            {!! $page->content !!}
 
-        <div class="blogs">
 
-            @if($page->parentCategory->children->count()>0)
-                @foreach($page->parentCategory->children as $haber)
-                    <div class="blog">
-                        <figure>
-                        <img src="{{$haber->page->image()}}" alt="{{$haber->page->title}}"/>
-                        </figure>
-
-                        <h2>{{$haber->page->title}}</h2>
-                        <a href="{{$haber->page->slug}}">Devamını Oku</a>
-                    </div>
-                @endforeach
-            @else
+            <div class="blogs">
                 @foreach($page->parentCategory->pages as $haber)
-                    <div class="blog">
-                        <figure>
-                        <img src="{{$haber->image()}}" alt="{{$haber->title}}"/>
+                    <a href="{{$haber->slug}}" class="blog spec-stroke">
+                        <h2>{{\Illuminate\Support\Str::limit($haber->title,51,"...")}}</h2>
+                        <figure class="spec-stroke">
+                            <img src="{{$haber->image()}}" alt="{{$haber->title}} | {{$setting->site_name}}">
                         </figure>
+                    </a>
 
-                        <h2>{{$haber->title}}</h2>
-                        <a href="{{$haber->slug}}" class="special-button">Devamını Oku</a>
-                    </div>
                 @endforeach
-            @endif
+            </div>
 
 
         </div>
-
     </div>
 @endsection
 

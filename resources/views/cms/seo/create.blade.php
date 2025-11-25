@@ -17,7 +17,9 @@
                     <select name="page_id" id="page_id">
                         <option value="">Seo Ait Olduğu Sayfa</option>
                         @foreach($pages as $item)
-                            <option value="{{$item->id}}">{{$item->title}}</option>
+                            @if($item->seo ==NULL)
+                                <option value="{{$item->id}}">{{$item->title}}</option>
+                            @endif
                         @endforeach
                     </select>
                     <input type="submit" value="Kaydet">

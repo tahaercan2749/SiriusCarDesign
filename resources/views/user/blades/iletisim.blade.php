@@ -6,6 +6,88 @@
 
 @section("content")
 
+    <div class="inner-page">
+        <div class="max-width  content-space">
+            <h1>{{$page->title}}</h1>
+            {!! $page->content !!}
+
+            <div class="contact-informations">
+
+                <a href="{{route("setVisitedUserCall",['tel:'.$contactInfo->setPhoneLink($contactInfo->phone),'phone'])}}" class="spec-stroke information">
+                    <figure class="spec-bg-stroke">
+                        <i class="ri-phone-fill"></i>
+                    </figure>
+                    <h2>Telefon</h2>
+                    <p>{{$contactInfo->phone}}</p>
+                </a>
+
+                <a class="spec-stroke information">
+                    <figure class="spec-bg-stroke">
+                        <i class="ri-map-pin-fill"></i>
+                    </figure>
+                    <h2>Adres</h2>
+                    <p>{{$contactInfo->address}} {{$contactInfo->state}} / {{$contactInfo->city}}</p>
+                </a>
+
+                <a href="mailto:{{$contactInfo->email}}" class="spec-stroke information">
+                    <figure class="spec-bg-stroke">
+                        <i class="ri-mail-fill"></i>
+                    </figure>
+                    <h2>E-Posta</h2>
+                    <p>{{$contactInfo->email}}</p>
+                </a>
+
+            </div>
+
+            <div class="contact-form">
+                <form method="post" action="{{route("iletisimFormu")}}" id="contact-form">
+                    @csrf
+                    <div class="row clearfix">
+                        <input type="hidden" name="recaptcha_token" id="recaptcha_token">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+                        </div>
+
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <input type="email" name="email" placeholder="E-mail Adresiniz" required>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <input type="text" name="phone" placeholder="Telefon Numaranız">
+                        </div>
+
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <input type="text" name="subject" placeholder="Konu" required>
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <textarea name="message" placeholder="Mesajınız (Min:20 karakter)"></textarea>
+                        </div>
+
+
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <button type="submit" class="theme-btn btn-style-four clearfix"><span
+                                    class="icon flaticon-arrow-pointing-to-right"></span>Gönder
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+                <!-- Contact Form -->
+            </div>
+
+           <div class="contact-map">
+               <iframe
+                   src="{{$contactInfo->map}}"
+                   allowfullscreen=""></iframe>
+           </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
     <!-- Contact Page Section -->
     <section class="contact-page-section">
         <div class="auto-container">
@@ -73,7 +155,7 @@
                     <div class="inner-column">
                         <ul class="info-list">
                             <li>
-                                <strong>{{$contactInfo->name}}</strong>
+                                {{$contactInfo->name}}
                                 <p>{{$contactInfo->address}}</p>
                                 <p><b>{{$contactInfo->state}} / {{$contactInfo->city}}
                                         / {{$contactInfo->country}}</b></p>
@@ -112,8 +194,8 @@
 @section("extraJs")
 
     <script>
-        grecaptcha.ready(function() {
-            grecaptcha.execute('{{ $apiKeys->recaptcha_site_key }}', {action: 'contact'}).then(function(token) {
+        grecaptcha.ready(function () {
+            grecaptcha.execute('{{ $apiKeys->recaptcha_site_key }}', {action: 'contact'}).then(function (token) {
                 document.getElementById('recaptcha_token').value = token;
             });
         });
