@@ -13,7 +13,8 @@
 
             <div class="contact-informations">
 
-                <a href="{{route("setVisitedUserCall",['tel:'.$contactInfo->setPhoneLink($contactInfo->phone),'phone'])}}" class="spec-stroke information">
+                <a href="{{route("setVisitedUserCall",['tel:'.$contactInfo->setPhoneLink($contactInfo->phone),'phone'])}}"
+                   class="spec-stroke information">
                     <figure class="spec-bg-stroke">
                         <i class="ri-phone-fill"></i>
                     </figure>
@@ -38,158 +39,31 @@
                 </a>
 
             </div>
-
-            <div class="contact-form">
-                <form method="post" action="{{route("iletisimFormu")}}" id="contact-form">
+            <div class="contact-form content-space">
+                <h2>İletişim Formu</h2>
+                <p>Aşağıdaki formu doldurarak bizimle iletişime geçebilirsiniz.</p>
+                <form class="" method="post" action="{{route("iletisimFormu")}}" id="contact-form">
                     @csrf
-                    <div class="row clearfix">
-                        <input type="hidden" name="recaptcha_token" id="recaptcha_token">
-                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                            <input type="text" name="name" placeholder="Adınız Soyadınız" required>
-                        </div>
+                    <input class="form-item" type="hidden" name="recaptcha_token" id="recaptcha_token">
+                    <input class="form-item" type="text" name="name" placeholder="Adınız Soyadınız" required>
+                    <input class="form-item" type="email" name="email" placeholder="E-mail Adresiniz" required>
+                    <input class="form-item" type="text" name="phone" placeholder="Telefon Numaranız">
+                    <input class="form-item" type="text" name="subject" placeholder="Konu" required>
+                    <textarea class="form-item-full" name="message" placeholder="Mesajınız (Min:20 karakter)"></textarea>
+                    <input  type="submit" value="Gönder">
 
-                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                            <input type="email" name="email" placeholder="E-mail Adresiniz" required>
-                        </div>
-                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                            <input type="text" name="phone" placeholder="Telefon Numaranız">
-                        </div>
-
-                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                            <input type="text" name="subject" placeholder="Konu" required>
-                        </div>
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                            <textarea name="message" placeholder="Mesajınız (Min:20 karakter)"></textarea>
-                        </div>
-
-
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                            <button type="submit" class="theme-btn btn-style-four clearfix"><span
-                                    class="icon flaticon-arrow-pointing-to-right"></span>Gönder
-                            </button>
-                        </div>
-
-                    </div>
                 </form>
                 <!-- Contact Form -->
             </div>
+        </div>
 
-           <div class="contact-map">
-               <iframe
-                   src="{{$contactInfo->map}}"
-                   allowfullscreen=""></iframe>
-           </div>
-
-
+        <div class="contact-map">
+            <iframe
+                src="{{$contactInfo->map}}"
+                allowfullscreen=""></iframe>
         </div>
     </div>
 
-
-
-
-
-    <!-- Contact Page Section -->
-    <section class="contact-page-section">
-        <div class="auto-container">
-            <!-- Sec Title -->
-            <div class="page-content centered">
-                <div class="title">Bize Ulaşın</div>
-                <h1>{{$page->title}}</h1>
-                <div class="separate"></div>
-                <br>
-                {!! $page->content !!}
-            </div>
-            <div class="row clearfix">
-
-                <!-- Form Column -->
-                <div class="form-column col-lg-8 col-md-12 col-sm-12">
-                    <div class="inner-column">
-                        <div class="title-box">
-                            <h2>İletişim Formu</h2>
-                            <div class="text">Her türlü soru görüş ve önerilerinizi aşağıdaki formu doldurarak bize
-                                iletebilirsiniz.
-                            </div>
-                        </div>
-
-                        <!-- Contact Form -->
-                        <div class="contact-form">
-                            <form method="post" action="{{route("iletisimFormu")}}" id="contact-form">
-                                @csrf
-                                <div class="row clearfix">
-                                    <input type="hidden" name="recaptcha_token" id="recaptcha_token">
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="name" placeholder="Adınız Soyadınız" required>
-                                    </div>
-
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="email" name="email" placeholder="E-mail Adresiniz" required>
-                                    </div>
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="phone" placeholder="Telefon Numaranız">
-                                    </div>
-
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="subject" placeholder="Konu" required>
-                                    </div>
-                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                        <textarea name="message" placeholder="Mesajınız (Min:20 karakter)"></textarea>
-                                    </div>
-
-
-                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                        <button type="submit" class="theme-btn btn-style-four clearfix"><span
-                                                class="icon flaticon-arrow-pointing-to-right"></span>Gönder
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </form>
-                            <!-- Contact Form -->
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Info Column -->
-                <div class="info-column col-lg-4 col-md-12 col-sm-12">
-                    <div class="inner-column">
-                        <ul class="info-list">
-                            <li>
-                                {{$contactInfo->name}}
-                                <p>{{$contactInfo->address}}</p>
-                                <p><b>{{$contactInfo->state}} / {{$contactInfo->city}}
-                                        / {{$contactInfo->country}}</b></p>
-
-                                <p>
-                                    <a href="{{route("setVisitedUserCall",['tel:'.$contactInfo->setPhoneLink($contactInfo->phone),'phone'])}}">{{$contactInfo->phone}}</a>
-                                </p>
-                                <p><a href="mailto:{{$contactInfo->email}}">{{$contactInfo->email}}</a></p>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- End Contact Page Section -->
-
-    <!-- Map Section -->
-    <section class="contact-map-section">
-        <div class="auto-container">
-            <!-- Map Boxed -->
-            <div class="map-boxed">
-                <!--Map Outer-->
-                <div class="map-outer">
-                    <iframe
-                        src="{{$contactInfo->map}}"
-                        allowfullscreen=""></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Map Section -->
 @endsection
 @section("extraJs")
 

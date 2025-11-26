@@ -24,10 +24,10 @@
             @endforeach
         </div>
 
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-scrollbar"></div>
+{{--        <div class="swiper-pagination"></div>--}}
+{{--        <div class="swiper-button-prev"></div>--}}
+{{--        <div class="swiper-button-next"></div>--}}
+{{--        <div class="swiper-scrollbar"></div>--}}
     </div>
 
     <div class="about-us content-space">
@@ -53,88 +53,29 @@
 
     <div class="our-services content-space max-width">
         <h2 class="home-title">Sirius Car Design Hizmetleri</h2>
-        <p>Adana’da aracınızın kondisyonunu en üst seviyeye taşıyacak teknik uzmanlıkla tanışın. Sirius Oto Design olarak;
-            <b>nanoteknolojik seramik kaplama</b> ve <b>PPF boya koruma filmi</b> ile aracınızın değerini korurken, <b>detaylı temizlik</b>,
-            <b>oto yıkama</b> ve <b>cam filmi</b> uygulamalarımızla konforunuzu artırıyoruz. İster lüks segment koruma, ister
-            günlük bakım olsun; oto kuaför ve tasarım alanındaki tüm ihtiyaçlarınız için profesyonel hizmetlerimizi aşağıda
+        <p>Adana’da aracınızın kondisyonunu en üst seviyeye taşıyacak teknik uzmanlıkla tanışın. Sirius Oto Design
+            olarak;
+            <b>nanoteknolojik seramik kaplama</b> ve <b>PPF boya koruma filmi</b> ile aracınızın değerini korurken,
+            <b>detaylı temizlik</b>,
+            <b>oto yıkama</b> ve <b>cam filmi</b> uygulamalarımızla konforunuzu artırıyoruz. İster lüks segment
+            koruma, ister
+            günlük bakım olsun; oto kuaför ve tasarım alanındaki tüm ihtiyaçlarınız için profesyonel hizmetlerimizi
+            aşağıda
             inceleyebilirsiniz.</p>
 
         <div class="services">
-
-            <a href="#" class="service spec-stroke">
-                <div class="spec-stroke">
-                    <figure class="spec-bg-stroke">
-                        <img src="{{asset("images/inner/boya-koruma-icon.svg")}}" width="40" height="auto" alt="">
-                    </figure>
-                    <h3>Boya Koruma</h3>
-                    <p>Aracınızın boyasını güneş, kuş pisliği
-                        ve çevresel etkilere karşı koruyarak ilk
-                        günkü parlaklığını uzun süre korur.</p>
-                </div>
-            </a>
-
-            <a href="#" class="service spec-stroke">
-                <div class="spec-stroke">
-                    <figure class="spec-bg-stroke">
-                        <img src="{{asset("images/inner/car-detailing-oto.svg")}}" width="40" height="auto" alt="">
-                    </figure>
-                    <h3>Car Detailing</h3>
-                    <p>Aracınızın iç ve dış yüzeylerinde
-                        derinlemesine temizlik, bakım ve yenileme
-                        işlemiyle üst düzey görünüm... </p>
-                </div>
-            </a>
-
-            <a href="#" class="service spec-stroke">
-                <div class="spec-stroke">
-                    <figure class="spec-bg-stroke">
-                        <img src="{{asset("images/inner/oto-yikama-icon.svg")}}" width="40" height="auto" alt="">
-                    </figure>
-                    <h3>Oto Yıkama</h3>
-                    <p>Aracınıza zarar vermeyen özel ürünlerle
-                        yapılan özenli ve detaylı temizlik hizmeti.</p>
-                </div>
-            </a>
-
-            <a href="#" class="service spec-stroke">
-                <div class="spec-stroke">
-                    <figure class="spec-bg-stroke">
-                        <img src="{{asset("images/inner/seramik-kaplama-icon.svg")}}" width="40" height="auto"
-                             alt="">
-                    </figure>
-                    <h3>Seramik Kaplama</h3>
-                    <p>Boyaya derin parlaklık ve uzun ömürlü
-                        koruma sağlayan nano teknoloji kaplama
-                        çözümü. </p>
-                </div>
-            </a>
-
-            <a href="#" class="service spec-stroke">
-                <div class="spec-stroke">
-                    <figure class="spec-bg-stroke">
-                        <img src="{{asset("images/inner/detayli-temizlik-icon.svg")}}" width="40" height="auto"
-                             alt="">
-                    </figure>
-                    <h3>Detaylı Temizlik</h3>
-                    <p>Koltuk, tavan, halı ve döşemelerde
-                        profesyonel iç temizlik ile hijyen ve
-                        ferahlık sağlar. </p>
-                </div>
-            </a>
-
-            <a href="#" class="service spec-stroke">
-                <div class="spec-stroke">
-                    <figure class="spec-bg-stroke">
-                        <img src="{{asset("images/inner/jant-boyama-icon.svg")}}" width="40" height="auto" alt="">
-                    </figure>
-                    <h3>Jant Boyama</h3>
-                    <p>Aracınıza estetik bir dokunuş kazandırmak
-                        ve jantlarınızı ilk günkü görünümüne
-                        kavuşturmak için profesyonel jant.</p>
-                </div>
-            </a>
-
-
+            @foreach($hizmetler->children as $hizmet)
+                <a href="{{$hizmet->image()}}" class="service spec-stroke">
+                    <div class="spec-stroke">
+                        <figure class="spec-bg-stroke">
+                            <img src="{{asset("images/inner/boya-koruma-icon.svg")}}" width="40" height="auto"
+                                 alt="">
+                        </figure>
+                        <h3>{{$hizmet->name}}</h3>
+                        <p>{{$hizmet->note}}</p>
+                    </div>
+                </a>
+            @endforeach
         </div>
 
     </div>
@@ -142,48 +83,21 @@
     <div class="gallery content-space">
         <div class="max-width">
             <h2 class="home-title">Sirius Car Design Galeri</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi delectus dolores inventore labore
-                laudantium magni, maiores neque nisi officiis porro, quibusdam, sequi? Ex, fugit ipsa nisi
-                quibusdam quisquam voluptas!</p>
+            <p>Sözcükler teknik kalitemizi anlatır, ancak fotoğraflar kanıtlar. Adana Sirius Oto Design atölyesinde
+                gerçekleştirdiğimiz seramik kaplama, PPF boya koruma ve detaylı temizlik işlemlerinin çarpıcı
+                sonuçlarına göz atın. Galerimizde, titiz işçiliğimizin ve araçlara kazandırdığımız 'showroom'
+                parlaklığının gerçek yansımalarını bulacaksınız.</p>
 
             <div class="swiper" id="gallerySlide">
                 <div class="swiper-wrapper">
-                    @foreach($slider as $slide)
-                        <a href="#" class="swiper-slide spec-stroke">
-                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
-                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
+                    @foreach($galeri as $resim)
+
+                        <a href="{{$resim->image()}}" class="swiper-slide spec-stroke">
+                            <img class="swiper-lazy desktop-show" src="{{$resim->image()}}"
+                                 alt="Sirius Car Design Galeri | {{$setting->site_name}}" loading="lazy">
                             <div class="swiper-lazy-preloader"></div>
                         </a>
-                        <a href="#" class="swiper-slide spec-stroke">
-                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
-                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
-                            <div class="swiper-lazy-preloader"></div>
-                        </a>
-                        <a href="#" class="swiper-slide spec-stroke">
-                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
-                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
-                            <div class="swiper-lazy-preloader"></div>
-                        </a>
-                        <a href="#" class="swiper-slide spec-stroke">
-                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
-                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
-                            <div class="swiper-lazy-preloader"></div>
-                        </a>
-                        <a href="#" class="swiper-slide spec-stroke">
-                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
-                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
-                            <div class="swiper-lazy-preloader"></div>
-                        </a>
-                        <a href="#" class="swiper-slide spec-stroke">
-                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
-                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
-                            <div class="swiper-lazy-preloader"></div>
-                        </a>
-                        <a href="#" class="swiper-slide spec-stroke">
-                            <img class="swiper-lazy desktop-show" src="{{asset("storage/sliders/kare-slide.jpg")}}"
-                                 alt="{{ $slide->name }} | {{$setting->site_name}}" loading="lazy">
-                            <div class="swiper-lazy-preloader"></div>
-                        </a>
+
                     @endforeach
                 </div>
                 <div class="swiper-next-button spec-bg-stroke">
@@ -196,75 +110,59 @@
         </div>
     </div>
 
-    <div class="our-values content-space">
-        <div class="max-width">
-            <h2 class="home-title">Sirius Car Design Değerleri</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur blanditiis consectetur
-                dignissimos dolor dolores enim fuga fugiat, in nihil pariatur placeat quaerat quod recusandae rem
-                veniam vitae? Excepturi, optio.</p>
-            <div class="values">
-                <div class="value spec-bg-stroke">
-                    <div class="title">
-                        <h3>Profesyonel Ekip</h3>
-                        <figure>
-                            <img src="{{asset("images/inner/arrow-up-icon.svg")}}" width="25" alt="">
-                        </figure>
-                    </div>
 
-                    <div class="content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita non
-                            repellat
-                            tempore. Deserunt enim facilis modi molestias nesciunt nulla officiis, placeat quae,
-                            quasi
-                            quidem quod sint suscipit tempore veniam?</p>
-                    </div>
 
-                </div>
-                <div class="value spec-bg-stroke active">
-                    <div class="title">
-                        <h3>Profesyonel Ekip</h3>
-                        <figure>
-                            <img src="{{asset("images/inner/arrow-up-icon.svg")}}" width="25" alt="">
-                        </figure>
-                    </div>
+    @if(!empty($degerlerAnasayfa) && $degerlerAnasayfa->count() > 0)
+        <div class="our-values content-space">
+            <div class="max-width">
+                <h2 class="home-title">Sirius Car Design Değerleri</h2>
+                <p>Adana'da araç bakım ve koruma sektöründe, sıradanlığın ötesine geçiyoruz. Sirius Oto Design
+                    olarak her uygulamamızın temelinde; teknik uzmanlık, dürüst işçilik ve araca duyduğumuz saygı
+                    yatar. Seramik kaplamadan detaylı temizliğe kadar, bizi Adana’nın en güvenilir markası yapan ve
+                    asla taviz vermediğimiz değerlerimiz şunlardır:</p>
+                <div class="values">
+                    @foreach($degerlerAnasayfa as $deger)
+                        <div class="value spec-bg-stroke @if($loop->index==0) active @endif">
+                            <div class="title">
+                                <h3>{{$deger->title}}</h3>
+                                <figure>
+                                    <img src="{{asset("images/inner/arrow-up-icon.svg")}}" width="25" alt="">
+                                </figure>
+                            </div>
 
-                    <div class="content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita non
-                            repellat
-                            tempore. Deserunt enim facilis modi molestias nesciunt nulla officiis, placeat quae,
-                            quasi
-                            quidem quod sint suscipit tempore veniam?</p>
-                    </div>
-
+                            <div class="content">
+                                <p>{{$deger->description}}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
+    @endif
 
-    </div>
+    @if($haberler->pages->count()>0)
+        <div class="blogs-news content-space">
+            <div class="max-width">
+                <h2 class="home-title">Haberler ve Blog</h2>
+                <p>Otomotiv dünyasındaki yenilikleri, araç koruma teknolojilerini ve Sirius atölyesinden güncel
+                    haberleri sizin için derliyoruz. Seramik kaplama ömrünü uzatan ipuçlarından, PPF ve cam filmi
+                    seçim rehberlerine kadar aracınızın değerini koruyacak uzman tavsiyelerini blogumuzda
+                    keşfedin.</p>
 
-    <div class="blogs-news content-space">
-        <div class="max-width">
-            <h2 class="home-title">Haberler ve Blog</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, expedita explicabo id illo
-                inventore ipsa iure, molestiae possimus quas quos ratione reiciendis rerum sed soluta totam vel
-                veritatis vero voluptates.</p>
-
-            <div class="blogs">
-
-
-                <div class="blog spec-stroke">
-                    <h3>Haber Başlığı</h3>
-                    <figure class="spec-stroke">
-                        <img src="{{asset("images/inner/blog.jpg")}}" alt="">
-                    </figure>
+                <div class="blogs">
+                    @foreach($haberler->pages as $haber)
+                        <a href="{{$haber->slug}}" class="blog spec-stroke">
+                            <h3>{{$haber->title}}</h3>
+                            <figure class="spec-stroke">
+                                <img src="{{$haber->image()}}" alt="{{$haber->title}} | {{$setting->site_name}}">
+                            </figure>
+                        </a>
+                    @endforeach
                 </div>
 
-
             </div>
-
-
         </div>
-    </div>
+    @endif
 
 @endsection
 @section("extraJs")

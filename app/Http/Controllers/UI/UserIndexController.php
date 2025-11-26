@@ -11,7 +11,9 @@ use App\Models\AuctionCounter;
 use App\Models\Category;
 use App\Models\ContactForm;
 use App\Models\Contacts;
+use App\Models\Gallery;
 use App\Models\GuestReviews;
+use App\Models\OurValues;
 use App\Models\Page;
 use App\Models\ReviewsImagesTemp;
 use App\Models\SiteSettings;
@@ -42,15 +44,15 @@ class UserIndexController extends Controller
         $slider = Slider::where('published', 1)->get();
 
 //        Özel kategorilerden özel kategorilerini buluyoruz
-//        $urunlerCategoriId = SpecialCategories::where('name', 'urunlerimiz')->first()->category_id;
-//        $haberlerCategoryId = SpecialCategories::where('name', 'haberler')->first()->category_id;
-//        $hikayemizCategoryId = SpecialCategories::where('name', 'hikayemiz')->first()->category_id;
-//
-//        $haberler = Category::find($haberlerCategoryId);
-//        $urunler = Category::find($urunlerCategoriId);
-//        $hikayemiz = Category::find($hikayemizCategoryId);
+        $hizmetlerimizCategoryId = SpecialCategories::where('name', 'hizmetlerimiz')->first()->category_id;
+        $haberlerCategoryId = SpecialCategories::where('name', 'haberler-ve-blog')->first()->category_id;
 
-        return view('user.index', compact('slider'));
+        $hizmetler = Category::find($hizmetlerimizCategoryId);
+        $haberler = Category::find($haberlerCategoryId);
+        $degerler = OurValues::limit(6)->get();
+        $galeri = Gallery::limit(10)->get();
+
+        return view('user.index', compact('slider', 'hizmetler', 'haberler', 'degerler', 'degerler', 'galeri'));
     }
 
     public function slugDecoder($slug)

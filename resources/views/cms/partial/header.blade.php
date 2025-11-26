@@ -192,6 +192,25 @@
         @endforeach
         @endpermission
 
+        @permission('degerlerimiz')
+        {{--        Slider --}}
+        <li class="ust-menu-li {{ request()->routeIs('cms.values.*') ? 'aktif' : '' }}">
+            <a>Değerlerimiz <i class="las la-angle-right"></i></a>
+
+            <ul class="alt-menu">
+
+                <li class="{{ request()->routeIs('cms.values.index') ? 'aktif' : '' }}">
+                    <a href="{{route('cms.values.index')}}">Tümü</a>
+                </li>
+
+                <li class="{{ request()->routeIs('cms.values.create') ? 'aktif' : '' }}">
+                    <a href="{{route('cms.values.create')}}">Oluştur</a>
+                </li>
+
+            </ul>
+        </li>
+        @endpermission
+
         @permission('slider')
         {{--        Slider --}}
         <li class="ust-menu-li {{ request()->routeIs('cms.slider.*') ? 'aktif' : '' }}">

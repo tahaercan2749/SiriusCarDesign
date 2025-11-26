@@ -28,7 +28,7 @@ class CategoryUpdateRequest extends FormRequest
 
             return [
                 'name'            => 'sometimes|required|string|max:100',
-                'note'            => 'nullable|string|max:100',
+                'note'            => 'nullable|string|max:200',
                 'image'           => 'nullable|mimes:jpg,jpeg,png,webp,avif,svg|max:2048',
                 'show_menu'       => 'nullable|boolean',
                 'show_homepage'   => 'nullable|boolean',

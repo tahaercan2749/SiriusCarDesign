@@ -13,7 +13,7 @@ import 'remixicon/fonts/remixicon.css';
 
 document.addEventListener('DOMContentLoaded', () => {
     new Swiper('#mainSlider', {
-        modules: [Navigation, Pagination, Autoplay, EffectFade], // Lazy yok burada
+        modules: [Autoplay, EffectFade], // Lazy yok burada
         direction: 'horizontal',
         loop: true,
         preloadImages: false,
@@ -25,14 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
             delay: 3000,
             disableOnInteraction: false,
         },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+        // pagination: {
+        //     el: '.swiper-pagination',
+        //     clickable: true,
+        // },
+        // navigation: {
+        //     nextEl: '.swiper-button-next',
+        //     prevEl: '.swiper-button-prev',
+        // },
         scrollbar: {
             el: '.swiper-scrollbar',
         },

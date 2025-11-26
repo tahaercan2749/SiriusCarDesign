@@ -47,6 +47,7 @@ Route::prefix('cms')->name("cms.")->middleware('loginPageAuthControl')->group(fu
         require __DIR__ . '/cms/contactForms.php';
         require __DIR__ . '/cms/faq.php';
         require __DIR__ . '/cms/homePageManagement.php';
+        require __DIR__ . '/cms/ourValues.php';
 
         Route::prefix('settings')->name("settings.")->group(function () {
             require __DIR__ . '/cms/siteSettings.php';

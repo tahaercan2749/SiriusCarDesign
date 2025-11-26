@@ -15,6 +15,7 @@ use App\Models\GuestReviews;
 use App\Models\HomePageManagement;
 use App\Models\Language;
 use App\Models\MediaUpload;
+use App\Models\OurValues;
 use App\Models\Page;
 use App\Models\Seo;
 use App\Models\SiteSettings;
@@ -31,6 +32,7 @@ use App\Observers\GuestReviewsObserver;
 use App\Observers\HomePageManagementObserver;
 use App\Observers\LanguageObserver;
 use App\Observers\MediaUploadsObserver;
+use App\Observers\OurValuesObserver;
 use App\Observers\PageObserver;
 use App\Observers\SeoObserve;
 use App\Observers\SiteSettingsObserver;
@@ -97,25 +99,41 @@ class AppServiceProvider extends ServiceProvider
             $view->with('apiKeys', $apiKeys);
         });
 
+
+
+
+        View::composer(['user.index'], function ($view) {
+            $degerlerAnasayfa = Cache::remember("degerlerAnasayfa", now()->addDay(), function () {
+                return OurValues::limit(6)->get();
+            });
+            $view->with('degerlerAnasayfa', $degerlerAnasayfa);
+        });
+
+        View::composer(['user.blades.degerler'], function ($view) {
+            $degerler = Cache::remember("degerler", now()->addDay(), function () {
+                return OurValues::get();
+            });
+            $view->with('degerler', $degerler);
+        });
+
+
+
+
+
+
+
         /**
          * Footer dosyasına hızlı menu linklerini gönderir
-         */
+
         View::composer('user.partial.footer', function ($view) {
             $fastMenus = Cache::remember("fastMenus", now()->addDay(), function () {
                 return Category::where("show_footer", 1)->orderBy("id", "asc")->get();
             });
             $view->with('fastMenus', $fastMenus);
         });
+        */
 
-        /**
-         * Markalarımız blade sayfasına markaların tamamını gonderiyoruz
-         */
-        View::composer(['user.blades.markalarimiz', 'user.index'], function ($view) {
-            $markalarimiz = Cache::remember("brands", now()->addDay(), function () {
-                return Brands::all();
-            });
-            $view->with('markalarimiz', $markalarimiz);
-        });
+
 
         /**
          * Side mmenülerini Panel sidebar - header'ına gönderir
@@ -168,5 +186,6 @@ class AppServiceProvider extends ServiceProvider
         ContactForm::observe(ContactFormObserver::class);
         Faq::observe(FaqObserver::class);
         HomePageManagement::observe(HomePageManagementObserver::class);
+        OurValues::observe(OurValuesObserver::class);
     }
 }
