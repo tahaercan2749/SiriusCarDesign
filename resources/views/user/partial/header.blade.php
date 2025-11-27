@@ -56,15 +56,16 @@
                         <ul class="sub-menu spec-stroke">
                             @if($menu->children && $menu->children->count() > 0)
                                 @foreach($menu->children as $submenu)
-                                   <li class="sub-link"> <a href="{{ $submenu->page ? url($submenu->page->slug) : '#' }}">
-                                        {{ $submenu->name }}
-                                    </a></li>
+                                    <li class="sub-link"><a
+                                            href="{{ $submenu->page ? url($submenu->page->slug) : '#' }}">
+                                            {{ $submenu->name }}
+                                        </a></li>
                                 @endforeach
                             @elseif($menu->pages && $menu->pages->count() > 0)
                                 @foreach($menu->pages as $page)
-                                   <li class="sub-link"> <a href="{{ url($page->slug) }}">
-                                        {{ $page->title }}
-                                    </a></li>
+                                    <li class="sub-link"><a href="{{ url($page->slug) }}">
+                                            {{ $page->title }}
+                                        </a></li>
                                 @endforeach
                             @endif
                         </ul>
@@ -82,12 +83,17 @@
         </ul>
 
         <div class="social-icons">
-            <a href="#" class="icon spec-bg-stroke">
-                <img src="{{asset("images/inner/instagram-icon.svg")}}" height="20" width="20" alt="İnstagram">
-            </a>
-            <a href="#" class="icon spec-bg-stroke">
-                <img src="{{asset("images/inner/phone-icon.svg")}}" height="20" width="20" alt="Phone Call">
-            </a>
+            @if(isset($contactInfo->socialMedia)&&$contactInfo->socialMedia->instagram!=NULL)
+                <a href="{{$contactInfo->socialMedia->instagram}}" class="icon spec-bg-stroke">
+                    <img src="{{asset("images/inner/instagram-icon.svg")}}" height="20" width="20" alt="İnstagram">
+                </a>
+            @endif
+            @if($contactInfo && $contactInfo->phone)
+                <a href="{{route("setVisitedUserCall",['tel:'.$contactInfo->setPhoneLink($contactInfo->phone),'phone'])}}"
+                   class="icon spec-bg-stroke">
+                    <img src="{{asset("images/inner/phone-icon.svg")}}" height="20" width="20" alt="Phone Call">
+                </a>
+            @endif
         </div>
 
         <div class="mobile-menu-buton">
@@ -210,6 +216,7 @@
         });
     });
 </script>
+
 
 
 

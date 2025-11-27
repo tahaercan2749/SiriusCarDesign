@@ -168,6 +168,12 @@ class Page extends Model
 
         return $results;
     }
+
+
+    public function faq()
+    {
+        return $this->HasMany(Faq::class, 'page_id');
+    }
 }
 
 

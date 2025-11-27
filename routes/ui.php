@@ -6,9 +6,6 @@ use App\Http\Controllers\UI\UserIndexController;
 Route::middleware('trackCampaignVisits')->group(function () {
 
 
-    Route::post("/guest-review", [UserIndexController::class, 'guestReview'])->name('guest.review');
-    Route::post("/guest-review-image", [UserIndexController::class, 'guestReviewImage'])->name('guest.review.image');
-
     Route::post('iletisim-formu-gonder',[UserIndexController::class,'contactForm'])->name('iletisimFormu');
     Route::get('', [UserIndexController::class, 'index'])->name('home');
     Route::get('/sitemap.xml', [UserIndexController::class, 'sitemap'])->name('sitemap');

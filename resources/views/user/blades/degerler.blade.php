@@ -14,11 +14,7 @@
 
             @if($degerler)
                 <div class="our-values content-space">
-                        <h2 class="home-title">Sirius Car Design Değerleri</h2>
-                        <p>Adana'da araç bakım ve koruma sektöründe, sıradanlığın ötesine geçiyoruz. Sirius Oto Design
-                            olarak her uygulamamızın temelinde; teknik uzmanlık, dürüst işçilik ve araca duyduğumuz saygı
-                            yatar. Seramik kaplamadan detaylı temizliğe kadar, bizi Adana’nın en güvenilir markası yapan ve
-                            asla taviz vermediğimiz değerlerimiz şunlardır:</p>
+
                         <div class="values">
                             @foreach($degerler as $deger)
                                 <div class="value spec-bg-stroke @if($loop->index==0) active @endif">

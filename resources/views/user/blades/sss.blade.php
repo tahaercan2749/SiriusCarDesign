@@ -1,12 +1,12 @@
 @extends("user.partial.layout")
-@section("extraCss")
+@section('extraCss')
     @php
         // SSS değişkeni var mı ve dolu mu kontrolü
-        if (isset($page->faq) && count($page->faq) > 0) {
+        if (isset($sss) && count($sss) > 0) {
 
             $questions = [];
 
-            foreach($page->faq as $soru) {
+            foreach($sss as $soru) {
                 // Soruları ve cevapları listeye ekle
                 $questions[] = [
                     "@type" => "Question",
@@ -48,20 +48,42 @@
 
             {!! $page->content !!}
 
-            <h2 class="title">Diğer Blog Yazılarımız</h2>
-            <div class="blogs">
+            @if($sss)
+                <div class="our-values content-space">
+                    <div class="values">
+                        @foreach($sss as $soru)
+                            <div class="value spec-bg-stroke @if($loop->index==0) active @endif">
+                                <div class="title">
+                                    <h3>{{$soru->question}}</h3>
+                                    <figure>
+                                        <img src="{{asset("images/inner/arrow-up-icon.svg")}}" width="25" alt="">
+                                    </figure>
+                                </div>
 
-                @foreach($page->getOtherPagesAttribute() as $haber)
-                    <a href="{{$haber->slug}}" class="blog spec-stroke">
-                        <h2>{{\Illuminate\Support\Str::limit($haber->title,51,"...")}}</h2>
-                        <figure class="spec-stroke">
-                            <img src="{{$haber->image()}}" alt="{{$haber->title}} | {{$setting->site_name}}">
-                        </figure>
-                    </a>
+                                <div class="content">
+                                    <p>{{$soru->answer}}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
 
-                @endforeach
-            </div>
         </div>
     </div>
 
+@endsection
+@section("extraJs")
+    <script>
+        const valuesOfSirius = document.querySelectorAll(".values .value");
+        valuesOfSirius.forEach((v) => {
+            v.addEventListener("click", () => {
+                activeValues = document.querySelectorAll(".values .value");
+                activeValues.forEach((av) => {
+                    av.classList.remove("active");
+                })
+                v.classList.toggle("active");
+            })
+        })
+    </script>
 @endsection

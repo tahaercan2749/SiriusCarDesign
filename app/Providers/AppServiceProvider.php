@@ -19,6 +19,7 @@ use App\Models\OurValues;
 use App\Models\Page;
 use App\Models\Seo;
 use App\Models\SiteSettings;
+use App\Models\SpecialCategories;
 use App\Observers\ApiKeyObserver;
 use App\Observers\AuctionsCounterObserver;
 use App\Observers\BladeObserver;
@@ -75,8 +76,10 @@ class AppServiceProvider extends ServiceProvider
             $setting = Cache::remember("siteSettings", now()->addDay(), function () {
                 return SiteSettings::first();
             });
+            $hizmetlerimizCategoryId = SpecialCategories::where('name', 'hizmetlerimiz')->first()->category_id;
+            $hizmetler = Category::find($hizmetlerimizCategoryId);
 
-            $view->with('setting', $setting);
+            $view->with('setting', $setting)->with('hizmetler', $hizmetler);
         });
 
         /**
@@ -99,7 +102,15 @@ class AppServiceProvider extends ServiceProvider
             $view->with('apiKeys', $apiKeys);
         });
 
-
+        /**
+         * Footer dosyasına hızlı menu linklerini gönderir
+         */
+        View::composer('user.blades.sss', function ($view) {
+            $sss = Cache::remember("sss", now()->addDay(), function () {
+                return Faq::get();
+            });
+            $view->with('sss', $sss);
+        });
 
 
         View::composer(['user.index'], function ($view) {
@@ -117,22 +128,19 @@ class AppServiceProvider extends ServiceProvider
         });
 
 
-
-
-
-
-
         /**
          * Footer dosyasına hızlı menu linklerini gönderir
-
+         */
         View::composer('user.partial.footer', function ($view) {
             $fastMenus = Cache::remember("fastMenus", now()->addDay(), function () {
                 return Category::where("show_footer", 1)->orderBy("id", "asc")->get();
             });
-            $view->with('fastMenus', $fastMenus);
-        });
-        */
+            $iletisimCategoryId = SpecialCategories::where('name', 'iletisim')->first()->category_id;
 
+            $iletisim = Category::findOrFail($iletisimCategoryId);
+
+            $view->with('fastMenus', $fastMenus)->with('iletisim', $iletisim);
+        });
 
 
         /**
