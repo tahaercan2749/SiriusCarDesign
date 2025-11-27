@@ -1,12 +1,23 @@
 @include('user.partial.head')
+@section("extraCss")
+    <style>
+        h1 {
+            color: #fff !important;
+        }
+    </style>
+@endsection
 @include('user.partial.header')
-    <section class="error-section">
-        <div class="auto-container">
-            <h2 style="margin-top:100px">Aradığınız Sayfa Bulunamadı</h2>
-            <div class="image">
-                <img src="{{asset("images/site-ici/not-found.png")}}" alt="" />
-            </div>
-            <a href="{{env("APP_URL")}}" class="theme-btn btn-style-two clearfix"><span class="icon"></span>Anasayfa</a>
+
+<div class="inner-page not-found content-space">
+    <div class="max-width">
+        <h1>Aradığınız Sayfa Bulunamadı</h1>
+        <h2>404</h2>
+        <div class="spec-stroke">
+            <a href="{{env("APP_URL")}}">Anasayfaya</a>
+            <span>|</span>
+            <a href="{{redirect()->back()}}">Geri</a>
+
         </div>
-    </section>
+    </div>
+</div>
 @include('user.partial.footer')

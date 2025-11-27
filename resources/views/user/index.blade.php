@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 @endsection
 @section("content")
-
+<h1 style="display: none; color:#000;">Adana Profesyonel Oto Bakım ve Koruma Merkezi</h1>
     <div class="swiper" id="mainSlider">
         <div class="swiper-wrapper">
             @foreach($slider as $slide)
@@ -69,7 +69,7 @@
                     <div class="spec-stroke">
                         <figure class="spec-bg-stroke">
                             <img src="{{asset("images/inner/boya-koruma-icon.svg")}}" width="40" height="auto"
-                                 alt="">
+                                 alt="{{$hizmet->name}} | {{$setting->site_name}}">
                         </figure>
                         <h3>{{$hizmet->name}}</h3>
                         <p>{{$hizmet->note}}</p>
@@ -101,10 +101,10 @@
                     @endforeach
                 </div>
                 <div class="swiper-next-button spec-bg-stroke">
-                    <img src="{{asset("images/inner/slide-next-btn.svg")}}" alt="">
+                    <img src="{{asset("images/inner/slide-next-btn.svg")}}" alt="{{$setting->site_name}} Galeri Sonraki Resim">
                 </div>
                 <div class="swiper-prev-button spec-bg-stroke">
-                    <img src="{{asset("images/inner/slide-prev-btn.svg")}}" alt="">
+                    <img src="{{asset("images/inner/slide-prev-btn.svg")}}" alt="{{$setting->site_name}} Galeri Önceki Resim">
                 </div>
             </div>
         </div>
@@ -126,7 +126,7 @@
                             <div class="title">
                                 <h3>{{$deger->title}}</h3>
                                 <figure>
-                                    <img src="{{asset("images/inner/arrow-up-icon.svg")}}" width="25" alt="">
+                                    <img src="{{asset("images/inner/arrow-up-icon.svg")}}" width="25" alt="{{$deger->title}} | {{$setting->site_name}}">
                                 </figure>
                             </div>
 
